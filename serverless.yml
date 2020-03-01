@@ -7,6 +7,8 @@ provider:
   region: us-central1
   project: adventures-in-the-cloud
   credentials: /workspace/keyfile.json
+  memorySize: 128
+  timeout: 10s
 
 plugins:
   - serverless-google-cloudfunctions

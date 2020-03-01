@@ -4,22 +4,19 @@ import json
 import re
 import feedparser
 import logging
+import yaml
 
 logger = logging.getLogger("Handler")
 level = logging.getLevelName('INFO')
 logger.setLevel(level)
 
-RSS_DICT = {
-    'tech': 'https://www.google.com/alerts/feeds/01736057707602744226/6181175218216352531',
-    'politics' : 'https://www.google.com/alerts/feeds/01736057707602744226/11649100745229852174',
-    'world': 'https://www.google.com/alerts/feeds/01736057707602744226/8023375279730230592'
-}
+with open("topics.yml",'r') as f: TOPICS = yaml.safe_load(f)
 
 class RSSReader:
     def __init__(self, db, topic = 'tech'):
-        assert topic in RSS_DICT.keys(), f"Your topic must be one of the following: {RSS_DICT.keys()}."
+        assert topic in TOPICS.keys(), f"Your topic must be one of the following: {TOPICS.keys()}."
         self.topic = topic
-        self.url = RSS_DICT[topic]
+        self.url = TOPICS[topic]
         self.id_regex = re.compile('feed\:(.*)$')
         self.url_regex = re.compile(r'url=(.*)&ct=')
         self.db = db

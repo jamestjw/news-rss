@@ -1,7 +1,7 @@
 import pymongo
 import ssl
 import re
-from helper import get_secret, RSSReader, DatabaseAdapter
+from helper import get_secret, RSSReader, DatabaseAdapter, TOPICS
 import logging
 
 logger = logging.getLogger("Handler")
@@ -15,7 +15,7 @@ DB_URL = f"mongodb+srv://{secret['DB_USER']}:{secret['DB_PW']}@{secret['CLUSTER_
 DB_CONN = pymongo.MongoClient(DB_URL).get_database(secret['DB_NAME'])
 
 def handler(request, callback):
-    for topic in ['tech','politics']:
+    for topic in TOPICS.keys():
         db = DatabaseAdapter(DB_CONN, col_name = topic)
         RSSReader(db, topic=topic).fetch_and_write()
 
