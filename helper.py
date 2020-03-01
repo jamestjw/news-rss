@@ -55,14 +55,14 @@ class RSSReader:
         self.db.write_many_to_db(data)
 
 class DatabaseAdapter:
-    def __init__(self, db_conn, name):
+    def __init__(self, db_conn, col_name):
         self.conn = db_conn
-        self.name = name
-        self.collection = self.conn.get_collection(name)
+        self.col_name = col_name
+        self.collection = self.conn.get_collection(col_name)
     
     def write_many_to_db(self, data):
         num_items = len(data)
-        logger.info(f'Writing {len(data)} items to the {self.name} collection...')
+        logger.info(f'Writing {len(data)} items to the {self.col_name} collection...')
         if num_items > 0 : self.collection.insert_many(data)
 
     def id_not_exists(self, id):
