@@ -10,7 +10,8 @@ level = logging.getLevelName('INFO')
 logger.setLevel(level)
 
 RSS_DICT = {
-    'tech': 'https://www.google.com/alerts/feeds/01736057707602744226/6181175218216352531'
+    'tech': 'https://www.google.com/alerts/feeds/01736057707602744226/6181175218216352531',
+    'politics' : 'https://www.google.com/alerts/feeds/01736057707602744226/11649100745229852174'
 }
 
 class RSSReader:

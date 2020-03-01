@@ -29,7 +29,7 @@ functions:
     events:
       - event:
           eventType: providers/cloud.pubsub/eventTypes/topic.publish
-          resource: 'projects/${self:provider.project, ""}/topics/thirty-minute-topic'
+          resource: 'projects/${self:provider.project, ""}/topics/one-hour-topic'
     environment:
       SECRET_VERSION: "projects/331198689747/secrets/MongoDB/versions/latest"
   # NOTE: the following uses an "event" event (pubSub event in this case).
