@@ -21,7 +21,7 @@ package:
 
 functions:
   readRSS:
-    handler: handler
+    handler: readRSS
     events:
       - event:
           eventType: providers/cloud.pubsub/eventTypes/topic.publish

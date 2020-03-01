@@ -24,6 +24,12 @@ steps:
     id: 'Deploy serverless framework'
     entrypoint: bash
     args: ['-c', 'npx serverless deploy -v']
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - functions
+      - deploy
+      - readRSS
+      - --service-account=rss-news-service@adventures-in-the-cloud.iam.gserviceaccount.com  
 substitutions:
   _KEYRING: sls_deploy_account
   _KEY: deploy_creds
