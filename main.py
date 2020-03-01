@@ -17,7 +17,7 @@ DB_URL = f"mongodb+srv://{secret['DB_USER']}:{secret['DB_PW']}@{secret['CLUSTER_
 DB_CONN = pymongo.MongoClient(DB_URL).get_database(secret['DB_NAME'])
 
 def handler(request, callback):
-    for topic in ['news','politics']:
+    for topic in ['tech','politics']:
         db = DatabaseAdapter(DB_CONN, name = topic)
         RSSReader(db, topic=topic).fetch_and_write()
 
