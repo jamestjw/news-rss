@@ -14,11 +14,11 @@ steps:
     args:
       - kms
       - decrypt
-      - ciphertext-file=keyfile.json.enc
-      - plaintext-file=keyfile.json
-      - location=global
-      - keyring=${_KEYRING}
-      - key=${_KEY}
+      - --ciphertext-file=keyfile.json.enc
+      - --plaintext-file=keyfile.json
+      - --location=global
+      - --keyring=${_KEYRING}
+      - --key=${_KEY}
   - name: 'gcr.io/cloud-builders/npm'
     id: 'Deploy serverless framework'
     entrypoint: bash
