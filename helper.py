@@ -11,7 +11,8 @@ logger.setLevel(level)
 
 RSS_DICT = {
     'tech': 'https://www.google.com/alerts/feeds/01736057707602744226/6181175218216352531',
-    'politics' : 'https://www.google.com/alerts/feeds/01736057707602744226/11649100745229852174'
+    'politics' : 'https://www.google.com/alerts/feeds/01736057707602744226/11649100745229852174',
+    'world': 'https://www.google.com/alerts/feeds/01736057707602744226/8023375279730230592'
 }
 
 class RSSReader:

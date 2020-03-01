@@ -11,6 +11,7 @@ steps:
     id: 'Install Serverless framework using npm'
     args: ['install', '-g', 'serverless@1.61.0']
   - name: gcr.io/cloud-builders/gcloud
+    id: 'Decrypt credentials using KMS'
     args:
       - kms
       - decrypt
