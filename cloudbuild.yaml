@@ -25,11 +25,13 @@ steps:
     entrypoint: bash
     args: ['-c', 'npx serverless deploy -v']
   - name: gcr.io/cloud-builders/gcloud
+    id: 'Assign service account to function'
     args:
       - functions
       - deploy
       - readRSS
-      - --service-account=rss-news-service@adventures-in-the-cloud.iam.gserviceaccount.com  
+      - --service-account=${_SERVICE_ACCOUNT}
 substitutions:
   _KEYRING: sls_deploy_account
   _KEY: deploy_creds
+  _SERVICE_ACCOUNT: rss-news-service@adventures-in-the-cloud.iam.gserviceaccount.com  
