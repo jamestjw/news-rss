@@ -17,7 +17,7 @@ def readRSS(request, callback):
     DB_URL = f"mongodb+srv://{secret['DB_USER']}:{secret['DB_PW']}@{secret['CLUSTER_NAME']}.gcp.mongodb.net/test?retryWrites=true&w=majority"
     DB_CONN = pymongo.MongoClient(DB_URL).get_database(secret['DB_NAME'])
 
-    for topic in TOPICS.keys():
+    for topic in TOPICS.keys(): 
         db = DatabaseAdapter(DB_CONN, col_name = '_'.join([ENV,topic]))
         RSSReader(db, topic=topic).fetch_and_write()
 

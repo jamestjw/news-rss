@@ -9,7 +9,6 @@ custom:
 
 provider:
   name: google
-  stage: dev
   runtime: python37
   region: us-central1
   project: adventures-in-the-cloud
