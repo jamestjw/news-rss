@@ -1,5 +1,12 @@
 service: news-rss
 
+custom:
+  Variables:
+    staging:
+      ENV: staging
+    production:
+      ENV: production
+
 provider:
   name: google
   stage: dev
@@ -28,3 +35,4 @@ functions:
           resource: 'projects/${self:provider.project, ""}/topics/one-hour-topic'
     environment:
       SECRET_VERSION: "projects/4700380161/secrets/mongoatlas/versions/latest"
+      ENV: ${self:custom.Variables.${opt:stage}.ENV}  

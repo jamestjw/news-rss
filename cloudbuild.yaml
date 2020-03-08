@@ -23,7 +23,7 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     id: 'Deploy serverless framework'
     entrypoint: bash
-    args: ['-c', 'npx serverless deploy -v']
+    args: ['-c', 'npx serverless deploy -v --stage ${_ENV}']
   - name: gcr.io/cloud-builders/gcloud
     id: 'Assign service account to function'
     args:
